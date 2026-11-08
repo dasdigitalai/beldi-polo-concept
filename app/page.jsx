@@ -40,6 +40,13 @@ const SPONSORS = [
   ["The Wellington", "https://www.thewellington.com/"],
 ];
 
+const PHOTOS = [
+  { src: "/photos/beldi-golden-hour.jpg", cap: "Golden hour on the field", alt: "Polo players on horseback on a bright green field under a pink and blue evening sky, with trees and the clubhouse behind", w: 640, h: 432 },
+  { src: "/photos/beldi-evening-match.jpg", cap: "An evening match", alt: "A polo match in progress at dusk, riders crossing the field with tall trees behind them", w: 640, h: 480 },
+  { src: "/photos/beldi-veranda.jpg", cap: "The veranda at dusk", alt: "A covered wooden veranda with string lights and guests seated at tables, looking out over the polo field at sunset", w: 640, h: 392 },
+  { src: "/photos/beldi-welcome.jpg", cap: "Welcome to Beldi", alt: "A black entrance sign reading Welcome to Beldi beside palm trees, with the polo grounds behind", w: 640, h: 392 },
+];
+
 const LOCATIONS = [
   { name: "Equestrian Facility", street: "12750 Indian Mound Road", city: "Wellington, Florida 33449" },
   { name: "Beldi Polo East", street: "1472 E Road", city: "Loxahatchee Groves, Florida 33470" },
@@ -234,6 +241,25 @@ export default function BeldiConcept() {
               <a href={`${SITE}/sunset-polo`} rel="noopener" className="btn btn-dark">Dates &amp; details</a>
             </div>
             <p className="fine">Dates and tickets are published on the club&rsquo;s Sunset Polo page.</p>
+          </div>
+        </section>
+
+        {/* Photos */}
+        <section className="section" aria-labelledby="gallery-title">
+          <div className="wrap">
+            <div className="head">
+              <div className="rule"><i /><span className="eyebrow">Life at Beldi</span></div>
+              <h2 id="gallery-title">An evening at the polo</h2>
+              <p>Long shadows over the field, the sound of hooves and a seat on the veranda.</p>
+            </div>
+            <div className="gallery">
+              {PHOTOS.map((ph) => (
+                <figure key={ph.src}>
+                  <img src={ph.src} alt={ph.alt} width={ph.w} height={ph.h} loading="lazy" />
+                  <figcaption>{ph.cap}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
 

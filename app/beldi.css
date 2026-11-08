@@ -198,12 +198,28 @@
 .beldi .loc address { font-style: normal; color: var(--muted); margin: 0.7rem 0 1.4rem; }
 @media (max-width: 920px) { .beldi .visit { grid-template-columns: 1fr; max-width: 30rem; margin-inline: auto; } }
 
-/* Sponsors */
+/* Sponsors: scrolling logo strip (SponsorMarquee.jsx) */
 .beldi .sponsors { text-align: center; }
-.beldi .sponsors h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-style: italic; font-weight: 400; margin: 1rem 0 2rem; }
-.beldi .sponsors ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 3rem; }
-.beldi .sponsors a { font-family: var(--serif); font-size: 1.5rem; color: var(--navy); border-bottom: 1px solid transparent; }
-.beldi .sponsors a:hover { border-color: var(--gold); }
+.beldi .sponsors h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-style: italic; font-weight: 400; margin: 1rem 0 2.2rem; }
+.beldi .marquee { position: relative; width: min(1180px, 100% - 3rem); margin-inline: auto; display: flex; align-items: center; gap: 1rem; }
+.beldi .marquee-view { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.beldi .marquee-track { display: flex; align-items: center; width: max-content; animation: marquee 32s linear infinite; }
+.beldi .marquee:hover .marquee-track, .beldi .marquee:focus-within .marquee-track, .beldi .marquee[data-paused="true"] .marquee-track { animation-play-state: paused; }
+.beldi .marquee-track li { flex: none; display: flex; align-items: center; padding: 0.5rem 2.75rem; }
+.beldi .marquee-track a { display: block; opacity: 0.88; transition: opacity 0.2s, transform 0.2s; }
+.beldi .marquee-track a:hover { opacity: 1; transform: scale(1.04); }
+.beldi .marquee-track img { display: block; width: auto; max-width: none; height: var(--h); }
+@media (max-width: 720px) { .beldi .marquee-track li { padding: 0.5rem 1.4rem; } .beldi .marquee-track img { height: calc(var(--h) * 0.66); } .beldi .marquee { gap: 0.5rem; } }
+.beldi .marquee-btn { flex: none; width: 2.5rem; height: 2.5rem; display: grid; place-items: center; border: 1px solid rgba(138, 95, 38, 0.55); background: transparent; color: var(--gold-deep); cursor: pointer; }
+.beldi .marquee-btn:hover { background: rgba(138, 95, 38, 0.12); }
+.beldi .marquee-btn svg { width: 1rem; height: 1rem; fill: currentColor; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .beldi .marquee-btn { display: none; }
+  .beldi .marquee-view { -webkit-mask-image: none; mask-image: none; }
+  .beldi .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; }
+  .beldi .marquee-track li[aria-hidden="true"] { display: none; }
+}
 
 /* Inquire */
 .beldi .inquire { background: var(--navy); color: var(--ivory); text-align: center; }

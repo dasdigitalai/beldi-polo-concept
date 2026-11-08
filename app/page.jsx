@@ -1,5 +1,6 @@
 import "./beldi.css";
 import HeroVideo from "./HeroVideo";
+import SponsorMarquee from "./SponsorMarquee";
 
 // Concept redesign by DAS Digital of the Beldi Equestrian & Polo Club website (beldieq.com).
 // Facility facts and addresses are taken from the club's current site; the descriptive copy and
@@ -34,11 +35,11 @@ const BARNS = [
 ];
 
 const SPONSORS = [
-  ["Palm Beach Equine Clinic", "https://equineclinic.com/"],
-  ["Purina Mills", "https://www.purinamills.com/"],
-  ["Farm Credit FL", "https://www.farmcreditfl.com/"],
-  ["Red Barn", "https://redbarn1.com/"],
-  ["The Wellington", "https://www.thewellington.com/"],
+  { name: "Palm Beach Equine Clinic", href: "https://equineclinic.com/", logo: "/sponsors/equine.png", h: 84 },
+  { name: "Purina Mills", href: "https://www.purinamills.com/", logo: "/sponsors/purina.png", h: 44 },
+  { name: "Farm Credit FL", href: "https://www.farmcreditfl.com/", logo: "/sponsors/fcfl.png", h: 44 },
+  { name: "Red Barn", href: "https://redbarn1.com/", logo: "/sponsors/redbarn.png", h: 62 },
+  { name: "The Wellington", href: "https://www.thewellington.com/", logo: "/sponsors/wellington.png", h: 62 },
 ];
 
 const PHOTOS = [
@@ -395,11 +396,7 @@ export default function BeldiConcept() {
           <div className="wrap">
             <div className="rule" style={{ justifyContent: "center" }}><i /><span className="eyebrow">Our sponsors</span></div>
             <h2 id="sponsors-title">A big thank you to our sponsors.</h2>
-            <ul>
-              {SPONSORS.map(([name, href]) => (
-                <li key={name}><a href={href} rel="noopener">{name}</a></li>
-              ))}
-            </ul>
+            <SponsorMarquee sponsors={SPONSORS} />
           </div>
         </section>
 

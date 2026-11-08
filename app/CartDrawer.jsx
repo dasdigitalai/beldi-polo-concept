@@ -41,7 +41,7 @@ export default function CartDrawer() {
           <ul className="cart-list">
             {items.map((i) => (
               <li key={i.key}>
-                <div className="cart-thumb"><ProductArt type={i.type} fill={i.fill} ink={i.ink} label="" /></div>
+                <div className="cart-thumb"><ProductArt type={i.type} fill={i.fill} ink={i.ink} logo={i.logo} label="" /></div>
                 <div className="cart-info">
                   <b>{i.name}</b>
                   <span>{i.colorName} &middot; {i.size}</span>

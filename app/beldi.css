@@ -59,10 +59,9 @@
 .beldi .announce a { border-bottom: 1px solid rgba(230, 197, 143, 0.5); }
 .beldi .header { position: sticky; top: 0; z-index: 30; background: rgba(13, 27, 46, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(196, 146, 79, 0.35); color: var(--ivory); }
 .beldi .header .wrap { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 4.6rem; gap: 1.5rem; }
-.beldi .brand { display: flex; align-items: center; gap: 0.85rem; }
-.beldi .brand svg { width: 2.5rem; height: 2.5rem; flex: none; }
-.beldi .brand b { display: block; font-family: var(--serif); font-size: 1.55rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; line-height: 1; }
-.beldi .brand small { display: block; font-size: 0.58rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold-hi); margin-top: 0.35rem; }
+.beldi .brand { display: flex; align-items: center; gap: 0.9rem; }
+.beldi .brand-mark { display: block; height: 2.15rem; width: auto; flex: none; }
+.beldi .brand small { display: block; padding-left: 0.9rem; border-left: 1px solid rgba(196, 146, 79, 0.65); font-size: 0.6rem; line-height: 1.5; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-hi); }
 .beldi .nav { display: flex; align-items: center; gap: 1.9rem; }
 .beldi .nav a:not(.btn) { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246, 240, 228, 0.86); padding: 0.4rem 0; border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
 .beldi .nav a:not(.btn):hover { color: var(--gold-hi); border-color: var(--gold); }

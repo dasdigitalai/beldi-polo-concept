@@ -12,14 +12,14 @@ function Product({ p }) {
   const c = p.colors[ci];
 
   const addToCart = () => {
-    add({ key: `${p.id}|${c.name}|${size}`, id: p.id, type: p.type, name: p.name, colorName: c.name, fill: c.fill, ink: c.ink, size, price: p.price });
+    add({ key: `${p.id}|${c.name}|${size}`, id: p.id, type: p.type, name: p.name, colorName: c.name, fill: c.fill, ink: c.ink, logo: c.logo, size, price: p.price });
     setOpen(true);
   };
 
   return (
     <article className="product">
       <div className="product-art">
-        <ProductArt type={p.type} fill={c.fill} ink={c.ink} label={`${p.name} in ${c.name}`} />
+        <ProductArt type={p.type} fill={c.fill} ink={c.ink} logo={c.logo} label={`${p.name} in ${c.name}`} />
       </div>
       <div className="product-body">
         <div className="product-head">

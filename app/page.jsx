@@ -1,6 +1,9 @@
 import "./beldi.css";
 import HeroVideo from "./HeroVideo";
 import SponsorMarquee from "./SponsorMarquee";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
+import SocialButtons from "./Social";
 
 // Concept redesign by DAS Digital of the Beldi Equestrian & Polo Club website (beldieq.com).
 // Facility facts and addresses are taken from the club's current site; the descriptive copy and
@@ -13,13 +16,6 @@ export const metadata = {
 
 const SITE = "https://beldieq.com";
 const maps = (q) => `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(q)}`;
-
-const NAV = [
-  ["Sunset Polo", "#sunset"],
-  ["Polo Facilities", "#polo"],
-  ["Equestrian Facility", "#equestrian"],
-  ["Contact", "#inquire"],
-];
 
 const FACTS = [
   ["3", "Private facilities"],
@@ -60,28 +56,6 @@ const INQUIRIES = [
   { t: "Barn rentals", p: "Seasonal and annual barn rentals at the Wellington equestrian facility.", href: `${SITE}/contact` },
   { t: "General inquiries", p: "Questions about the club, Sunset Polo or anything else.", href: `${SITE}/contact` },
 ];
-
-function Monogram() {
-  return (
-    <svg viewBox="0 0 48 48" aria-hidden="true">
-      <circle cx="24" cy="24" r="22" fill="#14283f" stroke="#e6c58f" strokeWidth="1.5" />
-      <circle cx="24" cy="24" r="18" fill="none" stroke="#c4924f" strokeWidth="0.8" />
-      <text x="24" y="31.5" textAnchor="middle" fontFamily="Georgia, serif" fontSize="22" fill="#e6c58f">B</text>
-    </svg>
-  );
-}
-
-function Brand() {
-  return (
-    <a href="#top" className="brand" aria-label="Beldi Equestrian & Polo Club, home">
-      <Monogram />
-      <span>
-        <b>Beldi</b>
-        <small>Equestrian &amp; Polo Club</small>
-      </span>
-    </a>
-  );
-}
 
 // A polo field at golden hour: sun, tree line and goal posts, so the page needs no stock photography.
 function Scene() {
@@ -145,38 +119,7 @@ function Icon({ name, className }) {
 export default function BeldiConcept() {
   return (
     <div className="beldi" id="top">
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
-      />
-
-      <div className="announce">
-        Concept redesign by DAS Digital &middot; Not the official site &middot;{" "}
-        <a href={SITE} rel="noopener">Visit beldieq.com</a>
-      </div>
-
-      <header className="header">
-        <div className="wrap">
-          <Brand />
-          <nav className="nav" aria-label="Main">
-            {NAV.map(([label, href]) => (
-              <a key={href} href={href}>{label}</a>
-            ))}
-            <a href="#inquire" className="btn btn-gold">Inquire</a>
-          </nav>
-          <details className="menu">
-            <summary aria-label="Menu"><span /></summary>
-            <div className="panel">
-              {NAV.map(([label, href]) => (
-                <a key={href} href={href}>{label}</a>
-              ))}
-              <a href="#inquire" className="btn btn-gold">Inquire</a>
-            </div>
-          </details>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main id="main">
         {/* Hero */}
@@ -388,6 +331,7 @@ export default function BeldiConcept() {
                 </article>
               ))}
             </div>
+            <SocialButtons className="visit-social" />
           </div>
         </section>
 
@@ -421,43 +365,7 @@ export default function BeldiConcept() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div className="cols">
-            <div>
-              <Brand />
-              <p className="about">Polo, stabling and hunter/jumper horsemanship in Wellington and Loxahatchee Groves, Florida.</p>
-            </div>
-            <div>
-              <h4>Explore</h4>
-              <ul>
-                {NAV.map(([label, href]) => (
-                  <li key={href}><a href={href}>{label}</a></li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h4>Polo</h4>
-              <ul>
-                <li>Beldi Polo North</li>
-                <li>14563 N Road</li>
-                <li>Beldi Polo East</li>
-                <li>1472 E Road</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Equestrian</h4>
-              <ul>
-                <li>12750 Indian Mound Road</li>
-                <li>Wellington, FL 33449</li>
-              </ul>
-            </div>
-          </div>
-          <div className="legal">
-            <span>Concept redesign by <a href="https://dasdigitalai.com/website-design">DAS Digital</a>. This is not the official Beldi Equestrian &amp; Polo Club website; facility details are from <a href={SITE} rel="noopener">beldieq.com</a>.</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

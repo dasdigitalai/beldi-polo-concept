@@ -52,6 +52,8 @@
 .beldi .link.on-light { color: var(--navy); }
 .beldi .link.on-light:hover { color: var(--gold-deep); }
 
+.beldi button { font-family: inherit; }
+
 /* Concept banner + header */
 .beldi .announce { background: #070f1a; color: var(--gold-hi); font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; padding: 0.6rem 1rem; }
 .beldi .announce a { border-bottom: 1px solid rgba(230, 197, 143, 0.5); }
@@ -248,3 +250,81 @@
 @media (max-width: 860px) { .beldi .footer .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.5rem; } .beldi .footer .cols > :first-child { grid-column: 1 / -1; } }
 
 @media (prefers-reduced-motion: reduce) { .beldi * { transition: none !important; } }
+
+/* Nav: cart button + current page */
+.beldi .nav a[aria-current="page"] { color: var(--gold-hi); border-color: var(--gold); }
+.beldi .nav .cart-btn { padding: 0.7rem 1.2rem; font-size: 0.7rem; white-space: nowrap; }
+.beldi .menu .panel .cart-btn { margin-top: 1.25rem; }
+@media (max-width: 1100px) { .beldi .nav { gap: 1.2rem; } .beldi .nav a:not(.btn) { letter-spacing: 0.14em; } }
+@media (max-width: 1020px) { .beldi .nav { display: none; } .beldi .menu { display: block; } }
+
+/* Shop */
+.beldi .shop-hero { position: relative; overflow: hidden; text-align: center; color: var(--ivory); padding-block: clamp(4rem, 8vw, 6.5rem); background: linear-gradient(180deg, #0b1829 0%, #1d2f4d 45%, #6b3f55 80%, #c8663f 100%); }
+.beldi .shop-hero .rule { justify-content: center; }
+.beldi .shop-hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); margin: 1.2rem 0 1.1rem; }
+.beldi .shop-hero h1 em { color: var(--gold-hi); font-weight: 400; }
+.beldi .shop-hero p { max-width: 36rem; margin: 0 auto; font-size: 1.1rem; font-weight: 300; color: rgba(246, 240, 228, 0.9); }
+.beldi .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+.beldi .product { background: #fff; border: 1px solid #e4d9c2; display: flex; flex-direction: column; transition: box-shadow 0.25s, transform 0.25s; }
+.beldi .product:hover { box-shadow: 0 24px 40px -28px rgba(13, 27, 46, 0.5); transform: translateY(-3px); }
+.beldi .product-art { background: radial-gradient(70% 70% at 50% 40%, #fbf6ea, var(--sand)); border-bottom: 1px solid #e4d9c2; padding: 1.2rem; aspect-ratio: 1; display: grid; place-items: center; }
+.beldi .product-art svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.beldi .product-body { padding: 1.5rem 1.6rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
+.beldi .product-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.beldi .product h3 { font-size: 1.7rem; }
+.beldi .price { font-family: var(--serif); font-size: 1.5rem; color: var(--gold-deep); }
+.beldi .blurb { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0 1.2rem; }
+.beldi .opt { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.9rem; }
+.beldi .opt-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.beldi .opt-label b { font-weight: 500; color: var(--ink); }
+.beldi .swatches { display: flex; gap: 0.55rem; }
+.beldi .swatch { width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--sw); border: 1px solid rgba(0, 0, 0, 0.25); cursor: pointer; padding: 0; box-shadow: 0 0 0 2px #fff; }
+.beldi .swatch.on { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--gold); }
+.beldi .opt select { font: inherit; font-size: 0.9rem; padding: 0.5rem 0.8rem; border: 1px solid #cdbf9f; background: #fff; color: var(--ink); min-width: 7rem; }
+.beldi .opt select:disabled { color: var(--muted); background: #f6f0e4; }
+.beldi .product .add { width: 100%; margin-top: auto; }
+.beldi .product-body .opt:last-of-type { margin-bottom: 1.4rem; }
+.beldi .shop-note { margin-top: 2.2rem; text-align: center; font-size: 0.85rem; color: var(--muted); }
+.beldi .follow { text-align: center; }
+.beldi .follow .rule { justify-content: center; }
+.beldi .follow h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: 1rem 0 1.8rem; }
+@media (max-width: 980px) { .beldi .products { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .beldi .products { grid-template-columns: 1fr; max-width: 26rem; margin-inline: auto; } }
+
+/* Cart drawer */
+.beldi dialog.cart-drawer { margin: 0 0 0 auto; padding: 0; width: min(26rem, 100vw); max-width: 100vw; height: 100dvh; max-height: 100dvh; border: 0; border-left: 1px solid var(--gold); background: var(--paper); color: var(--ink); font-family: var(--sans); }
+.beldi dialog.cart-drawer::backdrop { background: rgba(7, 15, 26, 0.6); }
+.beldi .cart-panel { height: 100%; display: flex; flex-direction: column; }
+.beldi .cart-top { display: flex; align-items: center; justify-content: space-between; padding: 1.3rem 1.5rem; background: var(--navy); color: var(--ivory); }
+.beldi .cart-top h2 { font-size: 1.7rem; }
+.beldi .cart-top h2 span { color: var(--gold-hi); }
+.beldi .cart-x { width: 2.5rem; height: 2.5rem; display: grid; place-items: center; background: transparent; color: var(--gold-hi); border: 1px solid rgba(230, 197, 143, 0.5); cursor: pointer; }
+.beldi .cart-x svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.beldi .cart-empty { padding: 3rem 1.5rem; text-align: center; display: grid; gap: 1.5rem; justify-items: center; color: var(--muted); }
+.beldi .cart-list { flex: 1; overflow: auto; padding: 0.5rem 1.5rem; }
+.beldi .cart-list li { display: grid; grid-template-columns: 4.5rem 1fr auto; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid #e4d9c2; align-items: start; }
+.beldi .cart-thumb { background: var(--sand); padding: 0.3rem; }
+.beldi .cart-thumb svg { width: 100%; display: block; }
+.beldi .cart-info b { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.2rem; line-height: 1.15; }
+.beldi .cart-info span { display: block; font-size: 0.82rem; color: var(--muted); margin: 0.2rem 0 0.6rem; }
+.beldi .qty { display: inline-flex; align-items: center; border: 1px solid #cdbf9f; }
+.beldi .qty button { width: 2rem; height: 2rem; background: #fff; border: 0; font-size: 1.1rem; cursor: pointer; color: var(--ink); }
+.beldi .qty button:hover { background: var(--sand); }
+.beldi .qty output { min-width: 2rem; text-align: center; font-size: 0.9rem; }
+.beldi .cart-price { font-family: var(--serif); font-size: 1.25rem; color: var(--gold-deep); }
+.beldi .cart-foot { padding: 1.3rem 1.5rem 1.6rem; border-top: 1px solid var(--gold); background: #fff; display: grid; gap: 0.9rem; }
+.beldi .cart-sub { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; }
+.beldi .cart-sub b { font-family: var(--serif); font-size: 1.8rem; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.beldi .cart-foot .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.beldi .cart-foot p { font-size: 0.8rem; color: var(--muted); }
+
+/* Social buttons */
+.beldi .social { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.beldi .social-btn { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.85rem 1.5rem; border: 1px solid var(--gold); color: var(--navy); font-size: 0.76rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.25s, color 0.25s; }
+.beldi .social-btn svg { width: 1.3rem; height: 1.3rem; flex: none; }
+.beldi .social-btn:hover { background: var(--navy); color: var(--gold-hi); border-color: var(--navy); }
+.beldi .social-light .social-btn { color: var(--ivory); border-color: rgba(230, 197, 143, 0.55); }
+.beldi .social-light .social-btn:hover { background: rgba(230, 197, 143, 0.14); color: var(--gold-hi); border-color: var(--gold-hi); }
+.beldi .visit-social { margin-top: 2.6rem; }
+.beldi .footer .footer-social { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0.7rem; margin-top: 1.6rem; max-width: 18rem; }
+.beldi .footer .footer-social .social-btn { padding: 0.7rem 1.1rem; font-size: 0.68rem; letter-spacing: 0.14em; }

@@ -1,4 +1,5 @@
 import "./beldi.css";
+import HeroVideo from "./HeroVideo";
 
 // Concept redesign by DAS Digital of the Beldi Equestrian & Polo Club website (beldieq.com).
 // Facility facts and addresses are taken from the club's current site; the descriptive copy and
@@ -180,6 +181,7 @@ export default function BeldiConcept() {
         {/* Hero */}
         <section className="hero" aria-labelledby="hero-title">
           <Scene />
+          <HeroVideo desktop="/video/hero-desktop.mp4" mobile="/video/hero-mobile.mp4" />
           <div className="wrap">
             <div className="rule"><i /><span className="eyebrow light">Wellington &middot; Loxahatchee Groves</span></div>
             <h1 id="hero-title">Polo and horsemanship at <em>golden hour.</em></h1>
@@ -260,6 +262,26 @@ export default function BeldiConcept() {
                 </figure>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Veranda video */}
+        <section className="section dark" aria-labelledby="veranda-title">
+          <div className="wrap veranda">
+            <div>
+              <span className="eyebrow light">On the veranda</span>
+              <h2 id="veranda-title">The best seats are the ones with a view</h2>
+              <p>
+                A table in the evening light, a cool drink in hand and the whole field laid out in front of you.
+                This is how an afternoon at the polo is meant to end.
+              </p>
+              <a className="btn btn-gold" href="#sunset">Sunset Polo</a>
+            </div>
+            <figure className="clip">
+              <video controls muted loop playsInline preload="metadata" poster="/video/veranda-poster.jpg" aria-label="Guests at a veranda table watching polo at sunset">
+                <source src="/video/veranda.mp4" type="video/mp4" />
+              </video>
+            </figure>
           </div>
         </section>
 
